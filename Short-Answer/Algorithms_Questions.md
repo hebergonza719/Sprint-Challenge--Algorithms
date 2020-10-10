@@ -34,3 +34,28 @@ c)  def bunnyEars(bunnies):
 Suppose that you have an n-story building and plenty of eggs. Suppose also that an egg gets broken if it is thrown off floor f or higher, and doesn't get broken if dropped off a floor less than floor f. Devise a strategy to determine the value of f such that the number of dropped + broken eggs is minimized.
 
 Write out your proposed algorithm in plain English or pseudocode AND give the runtime complexity of your solution.
+
+1. determine half of the amount of floors
+2. check if egg breaks in half
+2a.
+if egg breaks
+  go down a level
+  check if breaks
+    if it breaks
+      go to half of current floor and bottom floor
+    if it doesn't break
+      return floor
+  repeat loop
+2b.
+if egg doesn't break
+  go up to half of current floor and top
+  check if egg breaks
+    if it breaks
+      go down a level
+      if it breaks
+        go to half of current floor and previous floor
+      if it doesn't break
+        return floor
+    repeat loop
+
+The runtime complexity is Θ(log(n)). In my planning, I noticed it had similarities to a binary search tree which has a runtime complexity of Θ(log(n)).
